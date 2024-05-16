@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FA#5 No.2</title>
+</head>
+<body>
+
+    <input type="text" id="contactInput">
+    <button onclick="addContact()">Add</button>
+    <button onclick="removeContact()">Remove</button>
+    <p id="contactDisplay"></p>
+    
+    <script>
+        var contactsArray = [];
+
+        function displayContacts() {
+            var output = "";
+            for (var index = 0; index < contactsArray.length; index++) {
+                output += contactsArray[index] + " ";
+            }
+            document.getElementById("contactDisplay").innerHTML = output;
+        }
+
+        function addContact() {
+            var name = document.getElementById("contactInput").value;
+            if (name != "") {
+                contactsArray.push(name);
+                if (contactsArray.length > 7) {
+                    contactsArray.shift();
+                }
+                displayContacts();
+                document.getElementById("contactInput").value = "";
+            }
+        }
+
+        function removeContact() {
+            if (contactsArray.length > 0) {
+                contactsArray.pop();
+                displayContacts();
+            }
+        }
+    </script>
+
+</body>
+</html>

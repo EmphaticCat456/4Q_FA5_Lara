@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FA#5 No.1</title>
+</head>
+<body>
+    <button onclick="Shape()">Create Shape</button>
+    <p id="outputshape"></p>
+    <script>
+        function Shape() {
+            let num;
+            do {
+                num = prompt("Please enter any number: ");
+            } while (!check(num));
+            num = parseInt(num);
+            let outputshape = document.getElementById("outputshape");
+            outputshape.innerHTML = `Number Entered: ${num} <br><br>`;
+            if (num % 2 === 0) {
+                for (var a = num; a > 0; a--) {
+                    for (var i = a; i > 0; i--) {
+                        outputshape.innerHTML += `${a} `;
+                    }
+                    outputshape.innerHTML += `<br>`;
+                }
+            } else {
+                for (var a = num; a > 0; a--) {
+                    for (var i = num; i > 0; i--) {
+                        outputshape.innerHTML += `${a} `;
+                    }
+                    outputshape.innerHTML += `<br>`;
+                }
+            }
+        }
+        function check(value) {
+            return !isNaN(parseFloat(value)) && isFinite(value);
+        }
+    </script>
+</body>
+</html>
